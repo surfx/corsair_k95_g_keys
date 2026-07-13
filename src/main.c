@@ -230,6 +230,7 @@ int main(int argc, char *argv[]) {
     ctx.window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(ctx.window), "Corsair Macro Mapper");
     gtk_window_set_default_size(GTK_WINDOW(ctx.window), 700, 500);
+    gtk_window_set_resizable(GTK_WINDOW(ctx.window), FALSE);
     g_signal_connect(ctx.window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
 
     GtkWidget *main_vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);

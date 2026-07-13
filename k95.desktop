@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=K95
+Comment=Executa scripts do Corsair K95
+Exec=/mnt/disco_d/projetos/c/corsair_k95/scripts/run.sh
+Path=/mnt/disco_d/projetos/c/corsair_k95/scripts/
+Icon=input-keyboard
+Terminal=false
+Categories=Utility;
+Keywords=k95;corsair;scripts;
