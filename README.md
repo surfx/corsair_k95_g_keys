@@ -28,7 +28,7 @@ Uma ferramenta em C para mapear e executar macros através das teclas G de tecla
 
 1. Clone o repositório:
    ```bash
-   git clone <seu-repositorio>
+   git clone git@github.com:surfx/corsair_k95_g_keys.git
    cd readcorsair
    ```
 
