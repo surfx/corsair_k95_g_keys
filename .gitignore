@@ -1,0 +1,21 @@
+# Binários
+readcorsair
+test_hidraw
+
+# Arquivos de Processo/PID
+.readcorsair.pid
+*.pid
+
+# Objetos e bibliotecas
+*.o
+*.a
+*.so
+
+# IDEs e Editores
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs
+*.log
