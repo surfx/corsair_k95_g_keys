@@ -7,6 +7,7 @@
 #include <signal.h>
 #include <errno.h>
 #include <sys/ioctl.h>
+#include <sys/stat.h>
 #include <linux/hidraw.h>
 #include <gtk/gtk.h>
 
@@ -76,7 +77,16 @@ static void execute_macro(AppContext *ctx, int idx) {
     if (path && strlen(path) > 0) {
         log_to_gui(ctx, "G%d pressionado. Executando: %s\n", idx + 1, path);
         char cmd[1024];
-        snprintf(cmd, sizeof(cmd), "xdg-open \"%s\" &", path);
+        
+        struct stat st;
+        if (stat(path, &st) == 0 && S_ISREG(st.st_mode) && (st.st_mode & S_IXUSR)) {
+            // Se for um arquivo regular e executável, executa diretamente
+            snprintf(cmd, sizeof(cmd), "\"%s\" &", path);
+        } else {
+            // Caso contrário (pasta ou arquivo não executável), usa xdg-open
+            snprintf(cmd, sizeof(cmd), "xdg-open \"%s\" &", path);
+        }
+        
         if (system(cmd) == -1) {
             log_to_gui(ctx, "Erro ao tentar executar macro G%d\n", idx + 1);
         }
